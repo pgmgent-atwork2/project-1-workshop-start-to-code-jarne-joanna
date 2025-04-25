@@ -40,10 +40,12 @@ const getRandomWord = () => {
   const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
   //set the current word and update the hint text
   currentWord = word;
-  document.querySelector(".hint-text").innerText = hint;
+  document.querySelector(".hint-text b").innerText = hint;
   //reset the game
   resetGame();
+  console.log('hi');
+  
 };
 
 //start the game with a random word
-getRandomWord(); 
+getRandomWord();
