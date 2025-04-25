@@ -92,9 +92,31 @@ const initGame = (button, clickedLetter) => {
         wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
       }
     } )
+  }else{
+    //this will update the wrong guess count and the hangman image if the letter is not in the word
+    //wrongGuessCount++; makes sure that we can show all of our images based of the name of our images
+    wrongGuessCount++;
+    hangmanImage.src = `./src/images/hangman-${wrongGuessCount}.svg`;
+  }
+  //disable the button after it is clicked
+  button.disabled = true;
+  //update the guesscount
+  guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+
+  //check if the game is over
+  if(wrongGuessCount === maxGuesses) {
+    showGameOver(false);
+  }else if (currentWord.split("").every(letter => correctLetters.includes(letter))) {
+    showGameOver(true);
   }
 }
 
 //start the game with a random word
 getRandomWord();
+
+//add an event listener to the play again button
+playAgainButton.addEventListener("click", () => {
+  gameModal.classList.remove("show");
+  getRandomWord();
+});
 
