@@ -43,15 +43,44 @@ const getRandomWord = () => {
   resetGame();
 };
 
-//function to display if you lose or win
-const gameOver = (isVistory) => {
-  //display game over modal
-  const modalText = isVistory ? "you found the word!" : "The correct word was: ";
-  gameModal.querySelector("img").src = `images/${isVistory ? 'victory' : 'lost'}.gif`;
-  gameModal.querySelector("h4").innerText = isVistory ? 'Congratulations!' : 'Game Over!';
-  gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b> `;
-  gameModal.classList.add("show");
-};
+// Function to display the end screen when the game is over
+function showGameOver(isVictory) {
+
+    // Determine what content to show based on win/loss
+    if (isVictory) {
+        modalText = "You found the word!";
+        imageSource = "./src/images/victory.gif";
+        headingText = "Congratulations!";
+    } else {
+        modalText = "The correct word was:";
+        imageSource = "./src/images/lost.gif";
+        headingText = "Game Over!";
+    }
+
+    // Update the modal elements with the appropriate content
+    gameModal.querySelector("img").src = imageSource;
+    gameModal.querySelector("h4").innerText = headingText;
+    // Display the correct word in the modal
+    gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
+
+    // Make the modal visible
+    gameModal.classList.add("show");
+}
+
+
+//creating a for loop to display our keyboard buttons
+for (let i = 97; i <= 122; i++) {
+  //creating a button for each letter of the alphabet
+  const button = document.createElement("button");
+  // converts ASCII/Unicode values to their corresponding characters
+  button.innerText = String.fromCharCode(i);
+  //adding the button to the keyboard div
+  keyboardDiv.appendChild(button);
+  //adding an event listener to the button
+  button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
+
+}
 
 //start the game with a random word
 getRandomWord();
+showGameOver()
