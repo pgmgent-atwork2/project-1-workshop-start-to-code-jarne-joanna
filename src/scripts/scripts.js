@@ -14,7 +14,7 @@ const maxGuesses = 6;
 const resetGame = () => {
   correctLetters = [];
   wrongGuessCount = 0;
-  hangmanImage.src = `./images/hangman-0.svg`;
+  hangmanImage.src = `/src/images/hangman-0.svg`;
   guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 
   // creates the empty letter slots
@@ -31,3 +31,5 @@ const resetGame = () => {
   // hide the game modal
   gameModal.classList.remove("show");
 };
+
+resetGame();
