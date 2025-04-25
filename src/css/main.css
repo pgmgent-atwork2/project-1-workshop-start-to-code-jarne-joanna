@@ -1,6 +1,6 @@
 body {
-    display: flex;
-    padding: 0 10px;
+    width: 60%;
+    margin: 0 auto;
     font-family: Montserrat, sans-serif;
     align-items: center;
     justify-content: center;
@@ -10,8 +10,8 @@ body {
 
 .container {
     display: flex;
-    width: 55rem;
-    gap: 70px;
+    gap: 5rem;
+    margin: 2rem 0;
     padding: 60px 40px;
     background: hsl(174, 29%, 41%);
     border-radius: 1rem;
