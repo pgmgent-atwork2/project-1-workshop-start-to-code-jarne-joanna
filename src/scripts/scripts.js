@@ -1,11 +1,10 @@
-
 // selecting all the elements from the homepage
 const wordDisplay = document.querySelector(".word-display");
 const guessesText = document.querySelector(".guesses-text b");
 const keyboardDiv = document.querySelector(".keyboard");
 const hangmanImage = document.querySelector(".hangman-box img");
 const gameModal = document.querySelector(".game-modal");
-const playAgainButton = document.querySelector(".button");
+const playAgainButton = document.querySelector("button");
 
 // Initializing the game variables
 let currentWord, correctLetters, wrongGuessCount;
@@ -42,8 +41,16 @@ const getRandomWord = () => {
   document.querySelector(".hint-text b").innerText = hint;
   //reset the game
   resetGame();
-  console.log('hi');
-  
+};
+
+//function to display if you lose or win
+const gameOver = (isVistory) => {
+  //display game over modal
+  const modalText = isVistory ? "you found the word!" : "The correct word was: ";
+  gameModal.querySelector("img").src = `images/${isVistory ? 'victory' : 'lost'}.gif`;
+  gameModal.querySelector("h4").innerText = isVistory ? 'Congratulations!' : 'Game Over!';
+  gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b> `;
+  gameModal.classList.add("show");
 };
 
 //start the game with a random word
