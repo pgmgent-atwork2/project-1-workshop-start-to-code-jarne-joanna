@@ -5,6 +5,7 @@ const keyboardDiv = document.querySelector(".keyboard");
 const hangmanImage = document.querySelector(".hangman-box img");
 const gameModal = document.querySelector(".game-modal");
 const playAgainButton = document.querySelector(".button");
+import { wordList } from "./word-list.js";
 
 // Initializing the game variables
 let currentWord, correctLetters, wrongGuessCount;
@@ -32,4 +33,10 @@ const resetGame = () => {
   gameModal.classList.remove("show");
 };
 
-resetGame();
+// Function to get a random word from our word-list.js
+const getRandomWord = () => {
+    // this will pick a random word from the array of words
+    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
+}
+
+
