@@ -1,3 +1,6 @@
+//importing the words and hints from the word-list.js file
+import { wordList } from "./word-list.js";
+
 // selecting all the elements from the homepage
 const wordDisplay = document.querySelector(".word-display");
 const guessesText = document.querySelector(".guesses-text b");
@@ -5,7 +8,6 @@ const keyboardDiv = document.querySelector(".keyboard");
 const hangmanImage = document.querySelector(".hangman-box img");
 const gameModal = document.querySelector(".game-modal");
 const playAgainButton = document.querySelector(".button");
-import { wordList } from "./word-list.js";
 
 // Initializing the game variables
 let currentWord, correctLetters, wrongGuessCount;
@@ -35,8 +37,14 @@ const resetGame = () => {
 
 // Function to get a random word from our word-list.js
 const getRandomWord = () => {
-    // this will pick a random word from the array of words
-    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
-}
+  // this will pick a random word from the array of words, this may look a bit weird since we are destructuring the word and hint from the array of objects, but it is a common practice in JS to do this.
+  const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+  //set the current word and update the hint text
+  currentWord = word;
+  document.querySelector(".hint-text").innerText = hint;
+  //reset the game
+  resetGame();
+};
 
-
+//start the game with a random word
+getRandomWord(); 
