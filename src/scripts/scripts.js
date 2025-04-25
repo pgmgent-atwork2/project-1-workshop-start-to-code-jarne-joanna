@@ -1,4 +1,3 @@
-//importing the words and hints from the word-list.js file
 
 // selecting all the elements from the homepage
 const wordDisplay = document.querySelector(".word-display");
@@ -16,7 +15,7 @@ const maxGuesses = 6;
 const resetGame = () => {
   correctLetters = [];
   wrongGuessCount = 0;
-  hangmanImage.src = `/src/images/hangman-0.svg`;
+  hangmanImage.src = `./src/images/hangman-0.svg`;
   guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 
   // creates the empty letter slots
