@@ -17,7 +17,7 @@ const resetGame = () => {
   hangmanImage.src = `./src/images/hangman-0.svg`;
   guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 
-  // creates the empty letter slots
+  // creates the empty letter slots (spliting the word into an array of letters and mapping them to a list item)
   wordDisplay.innerHTML = currentWord
     .split("")
     .map(() => `<li class="letter"></li>`)
@@ -78,9 +78,23 @@ for (let i = 97; i <= 122; i++) {
   keyboardDiv.appendChild(button);
   //adding an event listener to the button
   button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
+}
 
+//function to handle the game logic when a button on the keyboard is clicked
+const initGame = (button, clickedLetter) => {
+  //check if the letter is in the word
+  if (currentWord.includes(clickedLetter)){
+    //refresh the displayed letter if the letter is in the word
+    [...currentWord].forEach((letter, index) =>{
+      if(letter === clickedLetter){
+        correctLetters.push(letter);
+        wordDisplay.querySelectorAll("li")[index].innerText = letter;
+        wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
+      }
+    } )
+  }
 }
 
 //start the game with a random word
 getRandomWord();
-showGameOver()
+
