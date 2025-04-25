@@ -1,5 +1,4 @@
 //importing the words and hints from the word-list.js file
-import { wordList } from "./word-list.js";
 
 // selecting all the elements from the homepage
 const wordDisplay = document.querySelector(".word-display");
