@@ -1,56 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hang the man</title>
+    <title>Minimalist Hangman</title>
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/main.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <div class="app">
+        <header class="header">
+            <h1>Learn to Code by Building a Hangman Game</h1>
+            <p>The complete beginner's guide to HTML, CSS, and JavaScript</p>
+        </header>
 
-    <div class="game-modal">
-        <div class="content">
-            <img src="./src/images/victory.gif" alt="gif">
-            <h4>Game Over!</h4>
-            <p>The correct word was: <b>rainbow</b></p>
-            <button class="play-again">Play Again</button>
-        </div>
+        <main class="main">
+            <div class="popup">
+                <div class="popup__content">
+                    <img src="./src/images/victory.gif" alt="gif">
+                    <h2>Wrong answer!</h2>
+                    <p>The word we needed was: <b>rainbow</b></p>
+                    <button class="restart-btn">Play Again</button>
+                </div>
+            </div>
+
+            <div class="game">
+                <div class="drawing">
+                    <img src="./src/images/hangman-0.svg" alt="hangman-img">
+                    <div class="score">Incorrect guesses: <b>0/6</b></div>
+                </div>
+
+                <div class="gameplay">
+                    <h4 class="clue">Hint: <b></b></h4>
+                    <ul class="letters"></ul>
+                    <div class="buttons"></div>
+                </div>
+            </div>
+        </main>
     </div>
-    <div class="container">
-        <div class="hangman-box">
-            <img src="./src/images/lost.gif" alt="hangman-img">
-            <h1 class="hangman-box__title">Let's begin</h1>
-        </div>
-        <div class="game-box">
-            <ul class="word-display"></ul>
-            <h4 class="hint-text">Hint: <b></b></h4>
-            <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
-            <div class="keyboard"></div>
-        </div>
-    </div>
 
-<main class="tutorial">
-
-<h2 class="tutorial__title">Tutorial: Hangman</h2>
-<p class="tutorial__paragraph">You will build a small tic-tac-toe game during this tutorial. This tutorial does not assume any existing React knowledge. The techniques you’ll learn in the tutorial are fundamental to building any React app, and fully understanding it will give you a deep understanding of React.
-
-</p>
-
-
-</main>
-
-<script src="./src/scripts/word-list.js"></script>
-<script src="./src/scripts/scripts.js"></script>
-
+    <script src="./src/scripts/word-list.js"></script>
+    <script src="./src/scripts/scripts.js"></script>
 </body>
-
 </html>
