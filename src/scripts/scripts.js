@@ -1,10 +1,10 @@
 // Selecting all elements
 const displayText = document.querySelector(".letters");
-const hangmanImage = document.querySelector(".drawing img");
+const hangmanImage = document.querySelector(".drawing__img");
 const endGamePopup = document.querySelector(".popup");
 const playAgainButton = document.querySelector(".restart-btn");
 const keyboardContainer = document.querySelector(".buttons");
-const guessesText = document.querySelector(".score b");
+const guessesText = document.querySelector(".drawing__score p");
 
 // Initializing the game variables
 let selectedWord, correctLetters, wrongGuessCount;
@@ -12,26 +12,22 @@ const maxGuessCount = 6;
 
 // Function to display the end screen when the game is over
 function showGameOver(isWinner) {
-  // Determine what content to show based on win/loss
+  const modalImage = endGamePopup.querySelector("img");
+
   if (isWinner) {
-    modalText = "You found the word!";
-    imageSource = "./src/images/victory.gif";
-    headingText = "Congratulations!";
+    modalImage.src = "./src/images/victory.gif";
+    endGamePopup.querySelector("h2").innerText = "Congratulations!";
+    endGamePopup.querySelector(
+      "p"
+    ).innerText = `You found the word: ${selectedWord}`;
   } else {
-    modalText = "The correct word was:";
-    imageSource = "./src/images/lost.gif";
-    headingText = "Game Over!";
+    modalImage.src = "./src/images/lost.gif";
+    endGamePopup.querySelector("h2").innerText = "Wrong Answer!";
+    endGamePopup.querySelector(
+      "p"
+    ).innerText = `The correct word was: ${selectedWord}`;
   }
 
-  // Update the modal elements with the appropriate content
-  endGamePopup.querySelector("img").src = imageSource;
-  endGamePopup.querySelector("h2").innerText = headingText;
-  // Display the correct word in the modal
-  endGamePopup.querySelector(
-    "p"
-  ).innerHTML = `${modalText} <b>${selectedWord}</b>`;
-
-  // Make the modal visible
   endGamePopup.classList.add("show");
 }
 
