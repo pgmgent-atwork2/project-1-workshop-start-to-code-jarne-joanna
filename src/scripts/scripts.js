@@ -123,7 +123,7 @@ const getRandomWord = () => {
 //start the game with a random word
 getRandomWord();
 
-//add an event listener to the play again button
+//add an event listener to the play again button to reset the game when clicked
 playAgainButton.addEventListener("click", () => {
   endGamePopup.classList.remove("show");
   getRandomWord();
