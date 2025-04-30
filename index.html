@@ -7,9 +7,12 @@
     <title>Minimalist Hangman</title>
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/tutorial.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
     <div class="app">
         <header class="header">
             <h1>Learn to Code by Building a Hangman Game</h1>
@@ -40,6 +43,550 @@
             </div>
         </main>
     </div>
+
+
+
+<!-- Tutorial start -->
+<div class="tutorial-content">
+
+<!-- intro sectie -->
+    <section id="intro" class="section">
+        <div class="section__content">
+            <h2 class="section__title">Introductie</h2>
+            <p class="section__text">Welkom bij je eerste programmeerproject! In deze tutorial bouw je een compleet Hangman-spel vanaf nul. Zelfs als je nog nooit een regel code hebt geschreven: geen paniek – we leggen alles stap voor stap uit.</p>
+        
+            <p class="section__text"><strong>Wat is Hangman?</strong> Hangman (Galgje) is een spel waarbij je een verborgen woord moet raden. Je doet dit door letters te proberen. Elke fout zorgt ervoor dat een stukje van de galg wordt getekend. Je wint als je het woord raadt vóór het poppetje compleet is.</p>
+        
+            <p class="section__text"><strong>Wat is HTML?</strong> HTML betekent HyperText Markup Language. Zie het als het skelet van een webpagina. Met HTML geef je structuur aan je inhoud: titels, paragrafen, knoppen, afbeeldingen… allemaal via HTML-tags zoals <code>&lt;h1&gt;</code> of <code>&lt;p&gt;</code>.</p>
+        
+            <p class="section__text"><strong>Wat is CSS?</strong> CSS staat voor Cascading Style Sheets. Als HTML het skelet is, dan is CSS de huid, kleding en stijl. CSS bepaalt kleuren, lettertypes, ruimtes, en waar alles staat.</p>
+        
+            <p class="section__text"><strong>Wat is JavaScript?</strong> JavaScript maakt je pagina interactief. HTML zorgt voor de structuur, CSS voor het uiterlijk, en JavaScript zorgt ervoor dat dingen reageren: klikken op knoppen, controleren of je de juiste letter koos, het tonen van een win- of verliesbericht… allemaal JavaScript.</p>
+        </div>
+    </section>
+    
+<!-- wat heb je nodig sectie -->
+    <section id="requirements" class="section">
+        <div class="section__content">
+            <h2 class="section__title">Wat heb je nodig?</h2>
+            <p class="section__text">Voor we kunnen beginnen, heb je een paar dingen nodig:</p>
+            <ul class="section__list">
+                <li>Een computer (Windows, Mac of Linux)</li>
+                <li>Een webbrowser (Chrome, Firefox, Edge of Safari)</li>
+                <li>Een code-editor – wij raden <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> aan</li>
+                <li>2 tot 3 uur vrije tijd</li>
+                <li>Een beetje geduld en nieuwsgierigheid – programmeren is als puzzels oplossen</li>
+            </ul>
+            <p class="section__text">Je hoeft niet alles in één keer te begrijpen. Deze tutorial is gemaakt om je te begeleiden, stap voor stap. Jij kan dit.</p>
+        </div>
+    </section>
+
+<!-- HTML sectie -->    
+    <section id="html" class="section">
+        <div class="section__content">
+            <h2 class="section__title">Stap 1: HTML - De structuur van je spel</h2>
+            
+            <h3 class="section__subtitle">Wat is HTML?</h3>
+            <p class="section__text">HTML (HyperText Markup Language) is de bouwsteen van elke website. Het is de taal die we gebruiken om de structuur en inhoud van een webpagina te maken.</p>
+            
+            <h3 class="section__subtitle">Basisstructuur aanmaken</h3>
+            <p class="section__text">Laten we beginnen met het maken van een nieuw project:</p>
+            
+            <ol class="section__list">
+                <li>
+                    <p><strong>Maak een nieuwe map</strong> voor je project en noem deze "hangman-game"</p>
+                    <img src="./src/images/tutorial/create-folder.png" alt="Nieuwe map maken" class="tutorial-img">
+                </li>
+                <li>
+                    <p><strong>Open Visual Studio Code</strong> en kies "File" → "Open Folder" en selecteer je nieuwe map</p>
+                    <img src="./src/images/tutorial/vscode-open.png" alt="VS Code openen" class="tutorial-img">
+                </li>
+                <li>
+                    <p><strong>Maak een nieuw bestand</strong> door te klikken op "File" → "New File" en sla dit op als "index.html"</p>
+                    <img src="./src/images/tutorial/create-file.png" alt="Nieuw bestand maken" class="tutorial-img">
+                </li>
+            </ol>
+            
+            <h3 class="section__subtitle">De HTML structuur</h3>
+            <p class="section__text">Kopieer en plak deze code in je index.html bestand:</p>
+            
+            <div class="code-block">
+                <pre><code>&lt;!DOCTYPE html&gt;
+    &lt;html lang="nl"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Minimalist Hangman&lt;/title&gt;
+        &lt;link rel="stylesheet" href="./src/css/reset.css"&gt;
+        &lt;link rel="stylesheet" href="./src/css/main.css"&gt;
+        &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="app"&gt;
+            &lt;header class="header"&gt;
+                &lt;h1&gt;Hangman Game&lt;/h1&gt;
+                &lt;p&gt;Raad het woord voor het te laat is!&lt;/p&gt;
+            &lt;/header&gt;
+    
+            &lt;main class="main"&gt;
+                &lt;!-- Pop-up voor einde spel --&gt;
+                &lt;div class="popup"&gt;
+                    &lt;div class="popup__content"&gt;
+                        &lt;img src="./src/images/victory.gif" alt="gif"&gt;
+                        &lt;h2&gt;Wrong answer!&lt;/h2&gt;
+                        &lt;p&gt;&lt;/p&gt;
+                        &lt;button class="restart-btn"&gt;Try again&lt;/button&gt;
+                    &lt;/div&gt;  
+                &lt;/div&gt;
+    
+                &lt;!-- Game container --&gt;
+                &lt;div class="game"&gt;
+                    &lt;div class="drawing"&gt;
+                        &lt;img class="drawing__img" src="./src/images/hangman-0.svg" alt="hangman-img"&gt;
+                        &lt;div class="drawing__score"&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+    
+                    &lt;div class="gameplay"&gt;
+                        &lt;h4 class="clue"&gt;Hint: &lt;b&gt;&lt;/b&gt;&lt;/h4&gt;
+                        &lt;ul class="letters"&gt;&lt;/ul&gt;
+                        &lt;div class="buttons"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/main&gt;
+        &lt;/div&gt;
+    
+        &lt;script src="./src/scripts/word-list.js"&gt;&lt;/script&gt;
+        &lt;script src="./src/scripts/scripts.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+            </div>
+            
+            <h3 class="section__subtitle">Uitleg van de HTML-code</h3>
+            
+            <h4 class="section__subsubtitle">De basis structuur</h4>
+            <p class="section__text">Laten we de belangrijkste delen uitleggen:</p>
+            
+            <ul class="section__list">
+                <li><code>&lt;!DOCTYPE html&gt;</code> - Dit vertelt de browser dat we HTML5 gebruiken</li>
+                <li><code>&lt;html lang="nl"&gt;</code> - Het begin van onze HTML, met Nederlands als taal</li>
+                <li><code>&lt;head&gt;...&lt;/head&gt;</code> - Bevat meta-informatie, titel en links naar CSS-bestanden</li>
+                <li><code>&lt;body&gt;...&lt;/body&gt;</code> - Hier komt alles wat zichtbaar is op de webpagina</li>
+            </ul>
+            
+            <h4 class="section__subsubtitle">De game onderdelen</h4>
+            <p class="section__text">Onze game bestaat uit verschillende onderdelen:</p>
+            
+            <ul class="section__list">
+                <li><strong>Header</strong> - De titel en subtitel van het spel</li>
+                <li><strong>Popup</strong> - Dit wordt getoond als het spel is afgelopen</li>
+                <li><strong>Drawing</strong> - Hier komt de hangman tekening</li>
+                <li><strong>Gameplay</strong> - Bevat de hint, letters van het te raden woord en toetsenbordknoppen</li>
+            </ul>
+            
+            <h3 class="section__subtitle">Projectstructuur aanmaken</h3>
+            <p class="section__text">Nu moeten we enkele mappen maken voor onze bestanden:</p>
+            
+            <ol class="section__list">
+                <li>
+                    <p>Maak een map genaamd "src" in je hoofdmap</p>
+                </li>
+                <li>
+                    <p>Maak binnen de "src" map drie submappen:</p>
+                    <ul>
+                        <li>"css" - voor je stijlbestanden</li>
+                        <li>"scripts" - voor je JavaScript bestanden</li>
+                        <li>"images" - voor afbeeldingen</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p class="section__text">Je projectstructuur zou er nu zo uit moeten zien:</p>
+            
+            <div class="code-block">
+                <pre><code>hangman-game/
+    ├── index.html
+    └── src/
+        ├── css/
+        ├── scripts/
+        └── images/</code></pre>
+            </div>
+            
+            <h3 class="section__subtitle">Afbeeldingen toevoegen</h3>
+            <p class="section__text">Voor ons spel hebben we afbeeldingen nodig van de verschillende fases van de hangman. Download deze afbeeldingen en plaats ze in de "images" map. (Zelf te maken of downloaden van een website.)</p>
+    
+            <div class="next-step">
+                <p>Nu je de HTML structuur hebt gemaakt, is het tijd om je spel te stylen met CSS!</p>
+                <a href="#css" class="btn btn--primary">Ga naar Stap 2: CSS</a>
+            </div>
+        </div>
+    </section>
+
+
+<!-- CSS sectie -->
+    <section id="css" class="section">
+        <div class="section__content">
+            <h2 class="section__title">Stap 2: CSS - Maak je spel mooi</h2>
+            
+            <h3 class="section__subtitle">Wat is CSS?</h3>
+            <p class="section__text">CSS (Cascading Style Sheets) zorgt voor de vormgeving van je webpagina. Met CSS kunnen we kleuren, lettertypen, afstanden en posities bepalen.</p>
+            
+            <h3 class="section__subtitle">De bestanden maken</h3>
+            <p class="section__text">We gaan twee CSS-bestanden maken:</p>
+            
+            <ol class="section__list">
+                <li>
+                    <p><strong>reset.css</strong> - Om de standaardstijlen van browsers te verwijderen</p>
+                    <p>Maak een nieuw bestand in de "css" map en noem het "reset.css"</p>
+                </li>
+                <li>
+                    <p><strong>main.css</strong> - Voor onze eigen stijlen</p>
+                    <p>Maak een nieuw bestand in de "css" map en noem het "main.css"</p>
+                </li>
+            </ol>
+            
+            <h3 class="section__subtitle">Reset CSS</h3>
+            <p class="section__text">Kopieer deze code naar je reset.css bestand:</p>
+            
+            <div class="code-block">
+                <pre><code>/* reset.css */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        height: 100%;
+    }
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+    }
+    
+    button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-family: inherit;
+    }
+    
+    ul {
+        list-style: none;
+    }</code></pre>
+            </div>
+            
+            <p class="section__text">Deze code zorgt ervoor dat alle browsers op dezelfde manier beginnen, wat helpt om verrassingen te voorkomen.</p>
+            
+            <h3 class="section__subtitle">Main CSS</h3>
+            <p class="section__text">Kopieer deze code naar je main.css bestand:</p>
+            
+            <div class="code-block">
+                <pre><code>/* main.css */
+    :root {
+        --primary-color: #2563eb;
+        --success-color: #10b981;
+        --danger-color: #ef4444;
+        --dark-color: #1f2937;
+        --light-color: #f8fafc;
+        --gray-color: #9ca3af;
+    }
+    
+    body {
+        background-color: #f8fafc;
+        color: var(--dark-color);
+    }
+    
+    .app {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    
+    /* Header Styles */
+    .header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .header h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+        font-size: 1.2rem;
+        color: var(--gray-color);
+    }
+    
+    /* Game Container */
+    .game {
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    /* Drawing Section */
+    .drawing {
+        text-align: center;
+    }
+    
+    .drawing__img {
+        max-width: 200px;
+        margin-bottom: 1rem;
+    }
+    
+    .drawing__score {
+        font-size: 1.2rem;
+        color: var(--gray-color);
+    }
+    
+    /* Gameplay Section */
+    .gameplay {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .clue {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .letters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .letter {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        border-bottom: 2px solid var(--dark-color);
+        text-align: center;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .letter.guessed {
+        color: var(--success-color);
+    }
+    
+    /* Keyboard Buttons */
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .buttons button {
+        width: 40px;
+        height: 40px;
+        background-color: var(--light-color);
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+    }
+    
+    .buttons button:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .buttons button:disabled {
+        background-color: var(--gray-color);
+        color: white;
+        cursor: not-allowed;
+    }
+    
+    /* Popup Styles */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .popup.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .popup__content {
+        background-color: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    .popup__content img {
+        width: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    .popup__content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .popup__content p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .restart-btn {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+    }
+    
+    .restart-btn:hover {
+        background-color: #1d4ed8;
+    }
+    
+    /* Responsive Styles */
+    @media (min-width: 768px) {
+        .game {
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .drawing {
+            flex: 1;
+        }
+        
+        .gameplay {
+            flex: 2;
+        }
+    }</code></pre>
+            </div>
+            
+            <h3 class="section__subtitle">Uitleg van de CSS-code</h3>
+            
+            <h4 class="section__subsubtitle">CSS Variabelen</h4>
+            <p class="section__text">We gebruiken CSS variabelen voor kleuren die in het hele document worden gebruikt:</p>
+            <div class="code-block">
+                <pre><code>:root {
+        --primary-color: #2563eb;
+        --success-color: #10b981;
+        --danger-color: #ef4444;
+        --dark-color: #1f2937;
+        --light-color: #f8fafc;
+        --gray-color: #9ca3af;
+    }</code></pre>
+            </div>
+            <p class="section__text">Dit maakt het gemakkelijk om kleuren aan te passen in het hele document.</p>
+            
+            <h4 class="section__subsubtitle">Layout</h4>
+            <p class="section__text">We hebben de app gecentreerd en een maximale breedte gegeven:</p>
+            <div class="code-block">
+                <pre><code>.app {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }</code></pre>
+            </div>
+            
+            <h4 class="section__subsubtitle">Flexbox</h4>
+            <p class="section__text">We gebruiken Flexbox voor de lay-out om elementen gemakkelijk te positioneren:</p>
+            <div class="code-block">
+                <pre><code>.game {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    /* Op grotere schermen veranderen we naar naast elkaar */
+    @media (min-width: 768px) {
+        .game {
+            flex-direction: row;
+            align-items: center;
+        }
+    }</code></pre>
+            </div>
+            
+            <h4 class="section__subsubtitle">Letters en knoppen</h4>
+            <p class="section__text">Voor de letters en toetsenbordknoppen gebruiken we een gestructureerde aanpak:</p>
+            <div class="code-block">
+                <pre><code>.letters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .letter {
+        width: 40px;
+        height: 40px;
+        border-bottom: 2px solid var(--dark-color);
+        text-align: center;
+    }</code></pre>
+            </div>
+            
+            <h4 class="section__subsubtitle">Popup styling</h4>
+            <p class="section__text">De popup wordt getoond of verborgen met CSS transitions:</p>
+            <div class="code-block">
+                <pre><code>.popup {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .popup.show {
+        opacity: 1;
+        visibility: visible;
+    }</code></pre>
+            </div>
+            
+            <h3 class="section__subtitle">Resultaat tot nu toe</h3>
+            <p class="section__text">Als je de browser nu opent en index.html laadt, zou je een mooi opgemaakt spel moeten zien. Maar het doet nog niets! Daarvoor hebben we JavaScript nodig.</p>
+            
+            <div class="tip">
+                <h4>Tip!</h4>
+                <p>Je kunt je pagina bekijken door de index.html te openen met je browser. Klik er gewoon op in je bestandsverkenner of gebruik File → Open in je browser.</p>
+            </div>
+            
+            <div class="next-step">
+                <p>Nu je HTML hebt voor de structuur en CSS voor de vormgeving, is het tijd om het spel tot leven te brengen met JavaScript!</p>
+                <a href="#js" class="btn btn--primary">Ga naar Stap 3: JavaScript</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="js" class="section">
+
+    </section>
+
+</div>
+
+
+
 
     <script src="./src/scripts/word-list.js"></script>
     <script src="./src/scripts/scripts.js"></script>
