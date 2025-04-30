@@ -763,6 +763,9 @@ body {
         </div>
       </section>
 
+
+
+   <!-- start js section -->
       <section id="js" class="section">
         <div class="section__content">
           <h2 class="section__title">
@@ -1008,7 +1011,7 @@ const resetGame = () => {
   // creates the empty letter slots (spliting the word into an array of letters and mapping them to a list item)
   displayText.innerHTML = selectedWord
     .split("")
-    .map(() => `<li class="letter"></li>`)
+    .map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)
     .join("");
 
   // enable keyboard buttons
@@ -1047,7 +1050,7 @@ const resetGame = () => {
           </ul>
 
           <p class="section__text">
-            Wat betekent <code>selectedWord.split("").map(...).join("")</code>?
+            Wat betekent <code>selectedWord.split("").map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)</code>?
           </p>
           <ol class="section__list nested">
             <li>
@@ -1056,10 +1059,7 @@ const resetGame = () => {
             </li>
             <li>
               <code
-                >map(() => `
-                <li class="letter"></li>
-                `)</code
-              >
+                >.map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)</code>
               - Maakt voor elke letter een list-item
             </li>
             <li>
@@ -1094,8 +1094,8 @@ for (let i = 97; i <= 122; i++) {
           <p class="section__text">Uitleg:</p>
           <ul class="section__list">
             <li>
-              We maken een for-loop die loopt van 97 t/m 122 (dit zijn de
-              ASCII-codes voor a t/m z)
+              We maken een for-loop die loopt van 97 t/m 122 tekens (dit zijn de
+              ASCII-codes)
             </li>
             <li>
               <code>document.createElement("button")</code> - Maakt een nieuwe
@@ -1307,14 +1307,6 @@ playAgainButton.addEventListener("click", () => {
             </li>
           </ul>
 
-          <h3 class="section__subtitle">Tutorial JavaScript</h3>
-          <p class="section__text">
-            Voor de tutorial pagina maken we een apart JavaScript bestand dat de
-            interactieve elementen zoals de voortgangsbalk, kopieerknop en tabel
-            van inhoud bestuurt. Kopieer de code uit het tutorial.js bestand dat
-            je eerder hebt gemaakt.
-          </p>
-
           <h3 class="section__subtitle">De volledige JavaScript code</h3>
           <p class="section__text">
             Hier is de volledige code die je in je scripts.js bestand moet
@@ -1366,7 +1358,7 @@ const resetGame = () => {
   // creates the empty letter slots (spliting the word into an array of letters and mapping them to a list item)
   displayText.innerHTML = selectedWord
     .split("")
-    .map(() => `<li class="letter"></li>`)
+    .map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)
     .join("");
 
   // enable keyboard buttons
@@ -1476,12 +1468,11 @@ playAgainButton.addEventListener("click", () => {
               Super! Je hebt nu een werkend Hangman spel gemaakt met HTML, CSS
               en JavaScript!
             </p>
-            <a href="#" class="btn btn--primary">Terug naar boven</a>
           </div>
         </div>
       </section>
 
-      <!-- Project Structure Section - Optional -->
+      <!-- Project Structure Section -->
       <section id="structure" class="section">
         <div class="section__content">
           <h2 class="section__title">Stap 4: Projectstructuur</h2>
