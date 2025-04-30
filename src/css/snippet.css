@@ -1,0 +1,67 @@
+code {
+  font-family: monospace;
+  background-color: var(--gray-light);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+}
+
+
+.code-block {
+  background-color: #4768c3;
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.code-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: #21252b;
+  border-bottom: 1px solid #181a1f;
+}
+
+.code-block::after {
+  content: "•••";
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  color: #6e7681;
+  letter-spacing: 5px;
+  font-size: 14px;
+}
+
+.code-block pre {
+  padding: calc(var(--spacing-lg) + 20px) var(--spacing-md) var(--spacing-md);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.code-block code {
+  color: #ffffff;
+  background: transparent;
+  padding: 0;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background-color: transparent;
+  color: var(--gray-light);
+  font-size: 0.8rem;
+  z-index: 10;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.copy-btn:hover {
+  color: white;
+}
