@@ -5,21 +5,23 @@ const endGamePopup = document.querySelector(".popup");
 const playAgainButton = document.querySelector(".restart-btn");
 const keyboardContainer = document.querySelector(".buttons");
 const guessesText = document.querySelector(".drawing__score p");
-
+const tutorialContent = document.querySelector(".tutorial-content");
+ 
 // Initializing the game variables
 let selectedWord, correctLetters, wrongGuessCount;
 const maxGuessCount = 6;
-
+ 
 // Function to display the end screen when the game is over
 function showGameOver(isWinner) {
   const modalImage = endGamePopup.querySelector("img");
-
+ 
   if (isWinner) {
     modalImage.src = "./src/images/victory.gif";
     endGamePopup.querySelector("h2").innerText = "Congratulations!";
     endGamePopup.querySelector(
       "p"
     ).innerText = `You found the word: ${selectedWord}`;
+ 
   } else {
     modalImage.src = "./src/images/lost.gif";
     endGamePopup.querySelector("h2").innerText = "Wrong Answer!";
@@ -27,32 +29,32 @@ function showGameOver(isWinner) {
       "p"
     ).innerText = `The correct word was: ${selectedWord}`;
   }
-
+  tutorialContent.classList.add("hidden");
   endGamePopup.classList.add("show");
 }
-
+ 
 // Function to start a new game
 const resetGame = () => {
   correctLetters = [];
   hangmanImage.src = `./src/images/hangman-0.svg`;
   wrongGuessCount = 0;
   guessesText.innerText = `${wrongGuessCount} / ${maxGuessCount}`;
-
+ 
   // creates the empty letter slots (spliting the word into an array of letters and mapping them to a list item)
   displayText.innerHTML = selectedWord
     .split("")
     .map(() => `<li class="letter"></li>`)
     .join("");
-
+ 
   // enable keyboard buttons
   keyboardContainer
     .querySelectorAll("button")
     .forEach((btn) => (btn.disabled = false));
-
+ 
   // hide the game modal
   endGamePopup.classList.remove("show");
 };
-
+ 
 //creating a for loop to display our keyboard buttons we use the numbers 97 to 122 since these are the ASCII values for the lowercase letters a-z
 for (let i = 97; i <= 122; i++) {
   //creating a button for each letter of the alphabet
@@ -66,20 +68,20 @@ for (let i = 97; i <= 122; i++) {
     startGame(e.target, String.fromCharCode(i))
   );
 }
-
+ 
 //function to handle the game logic when a button on the keyboard is clicked
 const startGame = (button, clickedLetter) => {
   // Check if the letter is in the word
   if (selectedWord.includes(clickedLetter)) {
     // Split word into array of letters
     const letters = selectedWord.split("");
-
+ 
     // Loop through each position in the word
     for (let index = 0; index < letters.length; index++) {
       if (letters[index] === clickedLetter) {
         correctLetters.push(letters[index]);
         const letterSlot = displayText.querySelectorAll("li")[index];
-
+ 
         // Update the display
         letterSlot.innerText = letters[index];
         letterSlot.classList.add("guessed");
@@ -94,7 +96,7 @@ const startGame = (button, clickedLetter) => {
   button.disabled = true;
   //update the guesscount
   guessesText.innerText = `${wrongGuessCount} / ${maxGuessCount}`;
-
+ 
   //check if the game is over
   if (wrongGuessCount === maxGuessCount) {
     showGameOver(false);
@@ -104,27 +106,28 @@ const startGame = (button, clickedLetter) => {
     showGameOver(true);
   }
 };
-
+ 
 // Function to get a random word from our word-list.js
 const getRandomWord = () => {
   // Get random index from the word list
   const randomIndex = Math.floor(Math.random() * wordList.length);
   // Get the word object based of the randomized index
   const wordObject = wordList[randomIndex];
-
+ 
   // Set the current word and hint
   selectedWord = wordObject.word;
   document.querySelector(".clue").innerText = wordObject.hint;
-
+ 
   // Reset the game
   resetGame();
 };
-
+ 
 //start the game with a random word
 getRandomWord();
-
+ 
 //add an event listener to the play again button to reset the game when clicked
 playAgainButton.addEventListener("click", () => {
   endGamePopup.classList.remove("show");
   getRandomWord();
+  tutorialContent.classList.remove("hidden");
 });
