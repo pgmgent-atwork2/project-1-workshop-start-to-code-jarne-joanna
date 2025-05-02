@@ -40,8 +40,8 @@ De uitleg is gericht op absolute beginners, met duidelijke taal en directe voorb
 ## 💡 Wat maakt dit project sterk?
 
 - **Kort en simpel** 
-- **Leerzaam:**
-- **Toegankelijk:**
+- **Leerzaam**
+- **Toegankelijk**
 - **Duidelijke opbouw:** de tutorial is direct zichtbaar, zonder aparte download
 
 ---
