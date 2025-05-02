@@ -1,214 +1,194 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hangman game / Joanna & Jarne</title>
-    <link rel="stylesheet" href="./src/css/reset.css" />
-    <link rel="stylesheet" href="./src/css/main.css" />
-    <link rel="stylesheet" href="./src/css/variables.css" />
-    <link rel="stylesheet" href="./src/css/game.css" />
-    <link rel="stylesheet" href="./src/css/snippet.css" />
-    <link rel="stylesheet" href="./src/css/tutorial.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <!-- Progress Bar -->
-    <div class="progress-container">
-      <div class="progress-bar"></div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangman game / Joanna & Jarne</title>
+  <link rel="stylesheet" href="./src/css/reset.css" />
+  <link rel="stylesheet" href="./src/css/main.css" />
+  <link rel="stylesheet" href="./src/css/variables.css" />
+  <link rel="stylesheet" href="./src/css/game.css" />
+  <link rel="stylesheet" href="./src/css/snippet.css" />
+  <link rel="stylesheet" href="./src/css/tutorial.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
 
-    <div class="app">
-      <header class="header">
-        <h1>Leer Programmeren door een Galgje-spel te Bouwen</h1>
-        <p>De complete beginnersgids voor HTML, CSS en JavaScript</p>
-      </header>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
 
-      <main class="main">
-        <div class="popup">
-          <div class="popup__content">
-            <img src="./src/images/victory.gif" alt="gif" />
-            <h2>Wrong answer!</h2>
-            <p></p>
-            <button class="restart-btn">Try again</button>
-          </div>
+  <div class="app">
+    <header class="header">
+      <h1>Leer Programmeren en start met Galgje na te bouwen</h1>
+      <p>De complete beginnersgids voor HTML, CSS en JavaScript</p>
+    </header>
+
+    <main class="main">
+      <div class="popup">
+        <div class="popup__content">
+          <img src="./src/images/victory.gif" alt="gif" />
+          <h2>Wrong answer!</h2>
+          <p></p>
+          <button class="restart-btn">Try again</button>
         </div>
-
-        <div class="game">
-          <div class="drawing">
-            <img
-              class="drawing__img"
-              src="./src/images/hangman-0.svg"
-              alt="hangman-img"
-            />
-            <div class="drawing__score">
-              <p></p>
-            </div>
-          </div>
-
-          <div class="gameplay">
-            <h4 class="clue">Hint: <b></b></h4>
-            <ul class="letters"></ul>
-            <div class="buttons"></div>
-          </div>
-        </div>
-      </main>
-    </div>
-
-    <!-- Tutorial Content -->
-    <div class="tutorial-content">
-      <div class="table-of-contents">
-        <h3>Inhoudsopgave</h3>
-        <ul>
-          <li><a href="#intro">Introductie</a></li>
-          <li><a href="#requirements">Wat heb je nodig?</a></li>
-          <li><a href="#html">Stap 1: HTML</a></li>
-          <li><a href="#css">Stap 2: CSS</a></li>
-          <li><a href="#js">Stap 3: JavaScript</a></li>
-          <li><a href="#structure">Stap 4: Projectstructuur</a></li>
-        </ul>
       </div>
 
-      <!-- Intro Section -->
-      <section id="intro" class="section">
-        <div class="section__content">
-          <h2 class="section__title">Introductie</h2>
-          <p class="section__text">
-            Welkom bij je eerste programmeerproject! In deze tutorial bouw je
-            een compleet Hangman-spel vanaf nul. Zelfs als je nog nooit een
-            regel code hebt geschreven: geen paniek – we leggen alles stap voor
-            stap uit.
-          </p>
-
-          <p class="section__text">
-            <strong>Wat is Hangman?</strong> Hangman (Galgje) is een spel
-            waarbij je een verborgen woord moet raden. Je doet dit door letters
-            te proberen. Elke fout zorgt ervoor dat een stukje van de galg wordt
-            getekend. Je wint als je het woord raadt vóór het poppetje compleet
-            is.
-          </p>
-
-          <p class="section__text">
-            <strong>Wat is HTML?</strong> HTML betekent HyperText Markup
-            Language. Zie het als het skelet van een webpagina. Met HTML geef je
-            structuur aan je inhoud: titels, paragrafen, knoppen, afbeeldingen…
-            allemaal via HTML-tags zoals <code>&lt;h1&gt;</code> of
-            <code>&lt;p&gt;</code>.
-          </p>
-
-          <p class="section__text">
-            <strong>Wat is CSS?</strong> CSS staat voor Cascading Style Sheets.
-            Als HTML het skelet is, dan is CSS de huid, kleding en stijl. CSS
-            bepaalt kleuren, lettertypes, ruimtes, en waar alles staat.
-          </p>
-
-          <p class="section__text">
-            <strong>Wat is JavaScript?</strong> JavaScript maakt je pagina
-            interactief. HTML zorgt voor de structuur, CSS voor het uiterlijk,
-            en JavaScript zorgt ervoor dat dingen reageren: klikken op knoppen,
-            controleren of je de juiste letter koos, het tonen van een win- of
-            verliesbericht… allemaal JavaScript.
-          </p>
+      <div class="game">
+        <div class="drawing">
+          <img class="drawing__img" src="./src/images/hangman-0.svg" alt="hangman-img" />
+          <div class="drawing__score">
+            <p></p>
+          </div>
         </div>
-      </section>
 
-      <section id="requirements" class="section">
-        <div class="section__content">
-          <h2 class="section__title">Wat heb je nodig?</h2>
-          <p class="section__text">
-            Voor we kunnen beginnen, heb je een paar dingen nodig:
-          </p>
-          <ul class="section__list">
-            <li>Een computer (Windows, Mac of Linux)</li>
-            <li>Een webbrowser (Chrome, Firefox, Edge of Safari)</li>
-            <li>
-              Een code-editor – wij raden
-              <a href="https://code.visualstudio.com/" target="_blank"
-                >Visual Studio Code</a
-              >
-              aan
-            </li>
-            <li>2 tot 3 uur vrije tijd</li>
-            <li>
-              Een beetje geduld en nieuwsgierigheid – programmeren is als
-              puzzels oplossen
-            </li>
-          </ul>
-          <p class="section__text">
-            Je hoeft niet alles in één keer te begrijpen. Deze tutorial is
-            gemaakt om je te begeleiden, stap voor stap. Jij kan dit.
-          </p>
+        <div class="gameplay">
+          <h4 class="clue">Hint: <b></b></h4>
+          <ul class="letters"></ul>
+          <div class="buttons"></div>
         </div>
-      </section>
+      </div>
+    </main>
+  </div>
 
-      <!-- HTML Section -->
-      <section id="html" class="section">
-        <div class="section__content">
-          <h2 class="section__title">
-            Stap 1: HTML - De structuur van je spel
-          </h2>
+  <!-- Tutorial Content -->
+  <div class="tutorial-content">
+    <div class="table-of-contents">
+      <h3>Inhoudsopgave</h3>
+      <ul>
+        <li><a href="#intro">Introductie</a></li>
+        <li><a href="#requirements">Wat heb je nodig?</a></li>
+        <li><a href="#html">Stap 1: HTML</a></li>
+        <li><a href="#css">Stap 2: CSS</a></li>
+        <li><a href="#js">Stap 3: JavaScript</a></li>
+        <li><a href="#structure">Stap 4: Projectstructuur</a></li>
+      </ul>
+    </div>
 
-          <h3 class="section__subtitle">Wat is HTML?</h3>
-          <p class="section__text">
-            HTML (HyperText Markup Language) is de bouwsteen van elke website.
-            Het is de taal die we gebruiken om de structuur en inhoud van een
-            webpagina te maken.
-          </p>
+    <!-- Intro Section -->
+    <section id="intro" class="section">
+      <div class="section__content">
+        <h2 class="section__title">Introductie</h2>
+        <p class="section__text">
+          Welkom bij je eerste programmeerproject! In deze tutorial bouw je
+          een compleet Hangman-spel vanaf nul. Zelfs als je nog nooit een
+          regel code hebt geschreven: geen paniek – we leggen alles stap voor
+          stap uit.
+        </p>
 
-          <h3 class="section__subtitle">Basisstructuur aanmaken</h3>
-          <p class="section__text">
-            Laten we beginnen met het maken van een nieuw project:
-          </p>
+        <p class="section__text">
+          <strong>Wat is Hangman?</strong> Hangman (Galgje) is een spel
+          waarbij je een verborgen woord moet raden. Je doet dit door letters
+          te proberen. Elke fout zorgt ervoor dat een stukje van de galg wordt
+          getekend. Je wint als je het woord raadt vóór het poppetje compleet
+          is.
+        </p>
 
-          <ol class="section__list">
-            <li>
-              <p>
-                <strong>Maak een nieuwe map</strong> voor je project en noem
-                deze "hangman-game"
-              </p>
-              <img
-                src="./src/images/tutorial/tutorial-1.png"
-                alt="Nieuwe map maken"
-                class="tutorial-img"
-              />
-            </li>
-            <li>
-              <p>
-                <strong>Open Visual Studio Code</strong> en kies "File" → "Open
-                Folder" en selecteer je nieuwe map
-              </p>
-              <img
-                src="./src/images/tutorial/tutorial-2.png"
-                alt="VS Code openen"
-                class="tutorial-img"
-              />
-            </li>
-            <li>
-              <p>
-                <strong>Maak een nieuw bestand</strong> door te klikken op
-                "File" → "New File" en sla dit op als "index.html"
-              </p>
-              <img
-                src="./src/images/tutorial/tutorial-3.png"
-                alt="Nieuw bestand maken"
-                class="tutorial-img"
-              />
-            </li>
-          </ol>
+        <p class="section__text">
+          <strong>Wat is HTML?</strong> HTML betekent HyperText Markup
+          Language. Zie het als het skelet van een webpagina. Met HTML geef je
+          structuur aan je inhoud: titels, paragrafen, knoppen, afbeeldingen…
+          allemaal via HTML-tags zoals <code>&lt;h1&gt;</code> of
+          <code>&lt;p&gt;</code>.
+        </p>
 
-          <h3 class="section__subtitle">De HTML structuur</h3>
-          <p class="section__text">
-            Kopieer en plak deze code in je index.html bestand:
-          </p>
+        <p class="section__text">
+          <strong>Wat is CSS?</strong> CSS staat voor Cascading Style Sheets.
+          Als HTML het skelet is, dan is CSS de huid, kleding en stijl. CSS
+          bepaalt kleuren, lettertypes, ruimtes, en waar alles staat.
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
+        <p class="section__text">
+          <strong>Wat is JavaScript?</strong> JavaScript maakt je pagina
+          interactief. HTML zorgt voor de structuur, CSS voor het uiterlijk,
+          en JavaScript zorgt ervoor dat dingen reageren: klikken op knoppen,
+          controleren of je de juiste letter koos, het tonen van een win- of
+          verliesbericht… allemaal JavaScript.
+        </p>
+      </div>
+    </section>
 
-            <pre><code>
+    <section id="requirements" class="section">
+      <div class="section__content">
+        <h2 class="section__title">Wat heb je nodig?</h2>
+        <p class="section__text">
+          Voor we kunnen beginnen, heb je een paar dingen nodig:
+        </p>
+        <ul class="section__list">
+          <li>Een computer (Windows, Mac of Linux)</li>
+          <li>Een webbrowser (Chrome, Firefox, Edge of Safari)</li>
+          <li>
+            Een code-editor – wij raden
+            <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>
+            aan
+          </li>
+          <li>2 tot 3 uur vrije tijd</li>
+          <li>
+            Een beetje geduld en nieuwsgierigheid – programmeren is als
+            puzzels oplossen
+          </li>
+        </ul>
+        <p class="section__text">
+          Je hoeft niet alles in één keer te begrijpen. Deze tutorial is
+          gemaakt om je te begeleiden, stap voor stap. Jij kan dit.
+        </p>
+      </div>
+    </section>
+
+    <!-- HTML Section -->
+    <section id="html" class="section">
+      <div class="section__content">
+        <h2 class="section__title">
+          Stap 1: HTML - De structuur van je spel
+        </h2>
+
+        <h3 class="section__subtitle">Wat is HTML?</h3>
+        <p class="section__text">
+          HTML (HyperText Markup Language) is de bouwsteen van elke website.
+          Het is de taal die we gebruiken om de structuur en inhoud van een
+          webpagina te maken.
+        </p>
+
+        <h3 class="section__subtitle">Basisstructuur aanmaken</h3>
+        <p class="section__text">
+          Laten we beginnen met het maken van een nieuw project:
+        </p>
+
+        <ol class="section__list">
+          <li>
+            <p>
+              <strong>Maak een nieuwe map</strong> voor je project en noem
+              deze "hangman-game"
+            </p>
+            <img src="./src/images/tutorial/tutorial-1.png" alt="Nieuwe map maken" class="tutorial-img" />
+          </li>
+          <li>
+            <p>
+              <strong>Open Visual Studio Code</strong> en kies "File" → "Open
+              Folder" en selecteer je nieuwe map
+            </p>
+            <img src="./src/images/tutorial/tutorial-2.png" alt="VS Code openen" class="tutorial-img" />
+          </li>
+          <li>
+            <p>
+              <strong>Maak een nieuw bestand</strong> door te klikken op
+              "File" → "New File" en sla dit op als "index.html"
+            </p>
+            <img src="./src/images/tutorial/tutorial-3.png" alt="Nieuw bestand maken" class="tutorial-img" />
+          </li>
+        </ol>
+
+        <h3 class="section__subtitle">De HTML structuur</h3>
+        <p class="section__text">
+          Kopieer en plak deze code in je index.html bestand:
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+
+          <pre><code>
  &lt;!DOCTYPE html&gt;
  &lt;html lang=&quot;nl&quot;&gt;
 &lt;head&gt;
@@ -222,14 +202,13 @@
  &lt;/head&gt;
 &lt;body&gt;
 
-
  &lt;div class=&quot;app&quot;&gt;
      &lt;header class=&quot;header&quot;&gt;
        &lt;h1&gt;Welcome to the game&lt;/h1&gt;&lt;/header&gt;
 &lt;main class=&quot;main&quot;&gt;
  &lt;div class=&quot;popup&quot;&gt;
     &lt;div class=&quot;popup__content&quot;&gt;
-                                                &lt;img src=&quot;./src/images/victory.gif&quot; alt=&quot;gif&quot;&gt;
+ &lt;img src=&quot;./src/images/victory.gif&quot; alt=&quot;gif&quot;&gt;
                                                 &lt;h2&gt;Wrong answer!&lt;/h2&gt;
                                                 &lt;p&gt;&lt;/p&gt;
                                                 &lt;button class=&quot;restart-btn&quot;&gt;Try again&lt;/button&gt;
@@ -255,144 +234,146 @@
                             &lt;/html&gt;
 
                         </code></pre>
-          </div>
+        </div>
 
-          <h3 class="section__subtitle">Uitleg van de HTML-code</h3>
+        <h3 class="section__subtitle">Uitleg van de HTML-code</h3>
 
-          <h4 class="section__subsubtitle">De basis structuur</h4>
-          <p class="section__text">
-            Laten we de belangrijkste delen uitleggen:
-          </p>
+        <h4 class="section__subsubtitle">De basis structuur</h4>
+        <p class="section__text">
+          Laten we de belangrijkste delen uitleggen:
+        </p>
 
-          <ul class="section__list">
-            <li>
-              <code>&lt;!DOCTYPE html&gt;</code> - Dit vertelt de browser dat we
-              HTML5 gebruiken
-            </li>
-            <li>
-              <code>&lt;html lang="nl"&gt;</code> - Het begin van onze HTML, met
-              Nederlands als taal
-            </li>
-            <li>
-              <code>&lt;head&gt;...&lt;/head&gt;</code> - Bevat meta-informatie,
-              titel en links naar CSS-bestanden
-            </li>
-            <li>
-              <code>&lt;body&gt;...&lt;/body&gt;</code> - Hier komt alles wat
-              zichtbaar is op de webpagina
-            </li>
-          </ul>
+        <ul class="section__list">
+          <li>
+            <code>&lt;!DOCTYPE html&gt;</code> - Dit vertelt de browser dat we
+            HTML5 gebruiken
+          </li>
+          <li>
+            <code>&lt;html lang="nl"&gt;</code> - Het begin van onze HTML, met
+            Nederlands als taal
+          </li>
+          <li>
+            <code>&lt;head&gt;...&lt;/head&gt;</code> - Bevat meta-informatie,
+            titel en links naar CSS-bestanden
+          </li>
+          <li>
+            <code>&lt;body&gt;...&lt;/body&gt;</code> - Hier komt alles wat
+            zichtbaar is op de webpagina
+          </li>
+        </ul>
 
-          <h4 class="section__subsubtitle">De game onderdelen</h4>
-          <p class="section__text">
-            Onze game bestaat uit verschillende onderdelen:
-          </p>
+        <h4 class="section__subsubtitle">De game onderdelen</h4>
+        <p class="section__text">
+          Onze game bestaat uit verschillende onderdelen:
+        </p>
 
-          <ul class="section__list">
-            <li><strong>Header</strong> - De titel en subtitel van het spel</li>
-            <li>
-              <strong>Popup</strong> - Dit wordt getoond als het spel is
-              afgelopen
-            </li>
-            <li><strong>Drawing</strong> - Hier komt de hangman tekening</li>
-            <li>
-              <strong>Gameplay</strong> - Bevat de hint, letters van het te
-              raden woord en toetsenbordknoppen
-            </li>
-          </ul>
+        <ul class="section__list">
+          <li><strong>Header</strong> - De titel en subtitel van het spel</li>
+          <li>
+            <strong>Popup</strong> - Dit wordt getoond als het spel is
+            afgelopen
+          </li>
+          <li><strong>Drawing</strong> - Hier komt de hangman tekening</li>
+          <li>
+            <strong>Gameplay</strong> - Bevat de hint, letters van het te
+            raden woord en toetsenbordknoppen
+          </li>
+        </ul>
 
-          <h3 class="section__subtitle">Projectstructuur aanmaken</h3>
-          <p class="section__text">
-            Nu moeten we enkele mappen maken voor onze bestanden:
-          </p>
+        <h3 class="section__subtitle">Projectstructuur aanmaken</h3>
+        <p class="section__text">
+          Nu moeten we enkele mappen maken voor onze bestanden:
+        </p>
 
-          <ol class="section__list">
-            <li>
-              <p>Maak een map genaamd "src" in je hoofdmap</p>
-            </li>
-            <li>
-              <p>Maak binnen de "src" map drie submappen:</p>
-              <ul>
-                <li>"css" - voor je stijlbestanden</li>
-                <li>"scripts" - voor je JavaScript bestanden</li>
-                <li>"images" - voor afbeeldingen</li>
-              </ul>
-            </li>
-          </ol>
+        <ol class="section__list">
+          <li>
+            <p>Maak een map genaamd "src" in je hoofdmap</p>
+          </li>
+          <li>
+            <p>Maak binnen de "src" map drie submappen:</p>
+            <ul>
+              <li>"css" - voor je stijlbestanden</li>
+              <li>"scripts" - voor je JavaScript bestanden</li>
+              <li>"images" - voor afbeeldingen</li>
+            </ul>
+          </li>
+        </ol>
 
-          <p class="section__text">
-            Je projectstructuur zou er nu zo uit moeten zien:
-          </p>
+        <p class="section__text">
+          Je projectstructuur zou er nu zo uit moeten zien:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>hangman-game/
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>hangman-game/
 ├── index.html
 └── src/
     ├── css/
     ├── scripts/
     └── images/</code></pre>
-          </div>
-
-          <h3 class="section__subtitle">Afbeeldingen toevoegen</h3>
-          <p class="section__text">
-            Voor ons spel hebben we afbeeldingen nodig van de verschillende
-            fases van de hangman. Download deze afbeeldingen <a href="https://drive.google.com/drive/folders/1g9JfxBnfrCQE_t4pPEu6KtaiGoEkZF45?usp=drive_link" target="_blank" rel="noopener noreferrer"><strong>hier</strong></a>
-
-          </p>
-
-          <div class="next-step">
-            <p>
-              Nu je de HTML structuur hebt gemaakt, is het tijd om je spel te
-              stylen met CSS!
-            </p>
-  
-          </div>
         </div>
-      </section>
 
-      <!-- CSS Section -->
-      <section id="css" class="section">
-        <div class="section__content">
-          <h2 class="section__title">Stap 2: CSS - Maak je spel mooi</h2>
+        <h3 class="section__subtitle">Afbeeldingen toevoegen</h3>
+        <p class="section__text">
+          Voor ons spel hebben we afbeeldingen nodig van de verschillende
+          fases van de hangman. Download deze afbeeldingen <a
+            href="https://drive.google.com/drive/folders/1g9JfxBnfrCQE_t4pPEu6KtaiGoEkZF45?usp=drive_link"
+            target="_blank" rel="noopener noreferrer"><strong>hier</strong></a>
 
-          <h3 class="section__subtitle">Wat is CSS?</h3>
-          <p class="section__text">
-            CSS (Cascading Style Sheets) zorgt voor de vormgeving van je
-            webpagina. Met CSS kunnen we kleuren, lettertypen, afstanden en
-            posities bepalen.
+        </p>
+
+        <div class="next-step">
+          <p>
+            Nu je de HTML structuur hebt gemaakt, is het tijd om je spel te
+            stylen met CSS!
           </p>
 
-          <h3 class="section__subtitle">De bestanden maken</h3>
-          <p class="section__text">We gaan drie CSS-bestanden maken:</p>
+        </div>
+      </div>
+    </section>
 
-          <ol class="section__list">
-            <li>
-              <p>
-                <strong>reset.css</strong> - Om de standaardstijlen van browsers
-                te verwijderen
-              </p>
-              <p>
-                Maak een nieuw bestand in de "css" map en noem het "reset.css"
-              </p>
-            </li>
-            <li>
-              <p><strong>main.css</strong> - Voor de stijlen van het spel</p>
-              <p>
-                Maak een nieuw bestand in de "css" map en noem het "main.css"
-              </p>
-            </li>
-         
-          </ol>
+    <!-- CSS Section -->
+    <section id="css" class="section">
+      <div class="section__content">
+        <h2 class="section__title">Stap 2: CSS - Maak je spel mooi</h2>
 
-          <h3 class="section__subtitle">Reset CSS</h3>
-          <p class="section__text">
-            Kopieer deze code naar je reset.css bestand:
-          </p>
+        <h3 class="section__subtitle">Wat is CSS?</h3>
+        <p class="section__text">
+          CSS (Cascading Style Sheets) zorgt voor de vormgeving van je
+          webpagina. Met CSS kunnen we kleuren, lettertypen, afstanden en
+          posities bepalen.
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>/* reset.css */
+        <h3 class="section__subtitle">De bestanden maken</h3>
+        <p class="section__text">We gaan drie CSS-bestanden maken:</p>
+
+        <ol class="section__list">
+          <li>
+            <p>
+              <strong>reset.css</strong> - Om de standaardstijlen van browsers
+              te verwijderen
+            </p>
+            <p>
+              Maak een nieuw bestand in de "css" map en noem het "reset.css"
+            </p>
+          </li>
+          <li>
+            <p><strong>main.css</strong> - Voor de stijlen van het spel</p>
+            <p>
+              Maak een nieuw bestand in de "css" map en noem het "main.css"
+            </p>
+          </li>
+
+        </ol>
+
+        <h3 class="section__subtitle">Reset CSS</h3>
+        <p class="section__text">
+          Kopieer deze code naar je reset.css bestand:
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>/* reset.css */
 * {
     margin: 0;
     padding: 0;
@@ -418,21 +399,21 @@ button {
 ul {
     list-style: none;
 }</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">
-            Deze code zorgt ervoor dat alle browsers op dezelfde manier
-            beginnen, wat helpt om verrassingen te voorkomen.
-          </p>
+        <p class="section__text">
+          Deze code zorgt ervoor dat alle browsers op dezelfde manier
+          beginnen, wat helpt om verrassingen te voorkomen.
+        </p>
 
-          <h3 class="section__subtitle">Main CSS</h3>
-          <p class="section__text">
-            Kopieer deze code naar je main.css bestand:
-          </p>
+        <h3 class="section__subtitle">Main CSS</h3>
+        <p class="section__text">
+          Kopieer deze code naar je main.css bestand:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>/* main.css */
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>/* main.css */
 :root {
     --primary-color: #3b82f6;
     --success-color: #10b981;
@@ -634,20 +615,20 @@ body {
         flex: 2;
     }
 }</code></pre>
-          </div>
+        </div>
 
 
 
-          <h3 class="section__subtitle">Uitleg van de CSS-code</h3>
+        <h3 class="section__subtitle">Uitleg van de CSS-code</h3>
 
-          <h4 class="section__subsubtitle">CSS Variabelen</h4>
-          <p class="section__text">
-            We gebruiken CSS variabelen voor kleuren die in het hele document
-            worden gebruikt:
-          </p>
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>:root {
+        <h4 class="section__subsubtitle">CSS Variabelen</h4>
+        <p class="section__text">
+          We gebruiken CSS variabelen voor kleuren die in het hele document
+          worden gebruikt:
+        </p>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>:root {
     --primary-color: #3b82f6;
     --success-color: #10b981;
     --danger-color: #ef4444;
@@ -655,33 +636,33 @@ body {
     --light-color: #f8fafc;
     --gray-color: #64748b;
 }</code></pre>
-          </div>
-          <p class="section__text">
-            Dit maakt het gemakkelijk om kleuren aan te passen in het hele
-            document.
-          </p>
+        </div>
+        <p class="section__text">
+          Dit maakt het gemakkelijk om kleuren aan te passen in het hele
+          document.
+        </p>
 
-          <h4 class="section__subsubtitle">Layout</h4>
-          <p class="section__text">
-            We hebben de app gecentreerd en een maximale breedte gegeven:
-          </p>
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>.app {
+        <h4 class="section__subsubtitle">Layout</h4>
+        <p class="section__text">
+          We hebben de app gecentreerd en een maximale breedte gegeven:
+        </p>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>.app {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }</code></pre>
-          </div>
+        </div>
 
-          <h4 class="section__subsubtitle">Flexbox</h4>
-          <p class="section__text">
-            We gebruiken Flexbox voor de lay-out om elementen gemakkelijk te
-            positioneren:
-          </p>
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>.game {
+        <h4 class="section__subsubtitle">Flexbox</h4>
+        <p class="section__text">
+          We gebruiken Flexbox voor de lay-out om elementen gemakkelijk te
+          positioneren:
+        </p>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>.game {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -694,16 +675,16 @@ body {
         align-items: center;
     }
 }</code></pre>
-          </div>
+        </div>
 
-          <h4 class="section__subsubtitle">Letters en knoppen</h4>
-          <p class="section__text">
-            Voor de letters en toetsenbordknoppen gebruiken we een
-            gestructureerde aanpak:
-          </p>
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>.letters {
+        <h4 class="section__subsubtitle">Letters en knoppen</h4>
+        <p class="section__text">
+          Voor de letters en toetsenbordknoppen gebruiken we een
+          gestructureerde aanpak:
+        </p>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>.letters {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -716,15 +697,15 @@ body {
     border-bottom: 2px solid var(--dark-color);
     text-align: center;
 }</code></pre>
-          </div>
+        </div>
 
-          <h4 class="section__subsubtitle">Popup styling</h4>
-          <p class="section__text">
-            De popup wordt getoond of verborgen met CSS transitions:
-          </p>
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>.popup {
+        <h4 class="section__subsubtitle">Popup styling</h4>
+        <p class="section__text">
+          De popup wordt getoond of verborgen met CSS transitions:
+        </p>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>.popup {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -734,94 +715,94 @@ body {
     opacity: 1;
     visibility: visible;
 }</code></pre>
-          </div>
-
-          <h3 class="section__subtitle">Resultaat tot nu toe</h3>
-          <p class="section__text">
-            Als je de browser nu opent en index.html laadt, zou je een mooi
-            opgemaakt spel moeten zien. Maar het doet nog niets! Daarvoor hebben
-            we JavaScript nodig.
-          </p>
-
-          <div class="tip">
-            <h4>Tip!</h4>
-            <p>
-              Je kunt je pagina bekijken door de index.html te openen met je
-              browser. Klik er gewoon op in je bestandsverkenner of gebruik File
-              → Open in je browser.
-            </p>
-          </div>
-
-          <div class="next-step">
-            <p>
-              Nu je HTML hebt voor de structuur en CSS voor de vormgeving, is
-              het tijd om het spel tot leven te brengen met JavaScript!
-            </p>
-           
-          
-          </div>
         </div>
-      </section>
 
+        <h3 class="section__subtitle">Resultaat tot nu toe</h3>
+        <p class="section__text">
+          Als je de browser nu opent en index.html laadt, zou je een mooi
+          opgemaakt spel moeten zien. Maar het doet nog niets! Daarvoor hebben
+          we JavaScript nodig.
+        </p>
 
+        <div class="tip">
+          <h4>Tip!</h4>
+          <p>
+            Je kunt je pagina bekijken door de index.html te openen met je
+            browser. Klik er gewoon op in je bestandsverkenner of gebruik File
+            → Open in je browser.
+          </p>
+        </div>
 
-   <!-- start js section -->
-      <section id="js" class="section">
-        <div class="section__content">
-          <h2 class="section__title">
-            Stap 3: JavaScript - Maak je spel interactief
-          </h2>
-
-          <h3 class="section__subtitle">Wat is JavaScript?</h3>
-          <p class="section__text">
-            JavaScript is de programmeertaal die webpagina's interactief maakt.
-            Met JavaScript kunnen we reageren op gebruikersacties, spellogica
-            toevoegen en dynamische inhoud maken.
+        <div class="next-step">
+          <p>
+            Nu je HTML hebt voor de structuur en CSS voor de vormgeving, is
+            het tijd om het spel tot leven te brengen met JavaScript!
           </p>
 
-          <h3 class="section__subtitle">De bestanden maken</h3>
-          <p class="section__text">We gaan drie JavaScript-bestanden maken:</p>
 
-          <ol class="section__list">
-            <li>
-              <p>
-                <strong>word-list.js</strong> - Dit bestand bevat de woorden en
-                hints die we in het spel gaan gebruiken
-              </p>
-              <p>
-                Maak een nieuw bestand in de "scripts" map en noem het
-                "word-list.js"
-              </p>
-            </li>
-            <li>
-              <p>
-                <strong>scripts.js</strong> - Dit bestand bevat de spellogica
-              </p>
-              <p>
-                Maak een nieuw bestand in de "scripts" map en noem het
-                "scripts.js"
-              </p>
-            </li>
-            <li>
-              <p>
-                <strong>tutorial.js</strong> - Dit bestand bevat de
-                functionaliteit voor de tutorial pagina
-              </p>
-              <p>
-                Maak een nieuw bestand in de "scripts" map en noem het
-                "tutorial.js"
-              </p>
-            </li>
-          </ol>
+        </div>
+      </div>
+    </section>
 
-          <h3 class="section__subtitle">Word List</h3>
-          <p class="section__text">
-            Kopieer deze code naar je word-list.js bestand:
-          </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// word-list.js
+
+    <!-- start js section -->
+    <section id="js" class="section">
+      <div class="section__content">
+        <h2 class="section__title">
+          Stap 3: JavaScript - Maak je spel interactief
+        </h2>
+
+        <h3 class="section__subtitle">Wat is JavaScript?</h3>
+        <p class="section__text">
+          JavaScript is de programmeertaal die webpagina's interactief maakt.
+          Met JavaScript kunnen we reageren op gebruikersacties, spellogica
+          toevoegen en dynamische inhoud maken.
+        </p>
+
+        <h3 class="section__subtitle">De bestanden maken</h3>
+        <p class="section__text">We gaan drie JavaScript-bestanden maken:</p>
+
+        <ol class="section__list">
+          <li>
+            <p>
+              <strong>word-list.js</strong> - Dit bestand bevat de woorden en
+              hints die we in het spel gaan gebruiken
+            </p>
+            <p>
+              Maak een nieuw bestand in de "scripts" map en noem het
+              "word-list.js"
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>scripts.js</strong> - Dit bestand bevat de spellogica
+            </p>
+            <p>
+              Maak een nieuw bestand in de "scripts" map en noem het
+              "scripts.js"
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>tutorial.js</strong> - Dit bestand bevat de
+              functionaliteit voor de tutorial pagina
+            </p>
+            <p>
+              Maak een nieuw bestand in de "scripts" map en noem het
+              "tutorial.js"
+            </p>
+          </li>
+        </ol>
+
+        <h3 class="section__subtitle">Word List</h3>
+        <p class="section__text">
+          Kopieer deze code naar je word-list.js bestand:
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// word-list.js
 // Dit bestand bevat een lijst van woorden en hints voor ons hangman spel
 
 const wordList = [
@@ -867,96 +848,96 @@ const wordList = [
     }
     // Je kunt hier zelf meer woorden toevoegen!
 ];</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">
-            Deze code maakt een lijst (array) van objecten. Elk object bevat een
-            woord en een hint voor dat woord.
-          </p>
+        <p class="section__text">
+          Deze code maakt een lijst (array) van objecten. Elk object bevat een
+          woord en een hint voor dat woord.
+        </p>
 
-          <h3 class="section__subtitle">Game Logic (scripts.js)</h3>
-          <p class="section__text">
-            Nu gaan we de code schrijven die het spel laat werken. We splitsen
-            dit op in kleinere stukken met uitleg bij elke stap.
-          </p>
+        <h3 class="section__subtitle">Game Logic (scripts.js)</h3>
+        <p class="section__text">
+          Nu gaan we de code schrijven die het spel laat werken. We splitsen
+          dit op in kleinere stukken met uitleg bij elke stap.
+        </p>
 
-          <h4 class="section__subsubtitle">Stap 1: Elementen selecteren</h4>
-          <p class="section__text">
-            Eerst moeten we de HTML-elementen selecteren die we nodig hebben:
-          </p>
+        <h4 class="section__subsubtitle">Stap 1: Elementen selecteren</h4>
+        <p class="section__text">
+          Eerst moeten we de HTML-elementen selecteren die we nodig hebben:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// Selecting all elements
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// Selecting all elements
 const displayText = document.querySelector(".letters");
 const hangmanImage = document.querySelector(".drawing__img");
 const endGamePopup = document.querySelector(".popup");
 const playAgainButton = document.querySelector(".restart-btn");
 const keyboardContainer = document.querySelector(".buttons");
 const guessesText = document.querySelector(".drawing__score p");</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Wat gebeurt hier?</p>
-          <ul class="section__list">
-            <li>
-              <code>document.querySelector()</code> zoekt elementen in je HTML
-              op basis van CSS-selectoren (zoals klassen)
-            </li>
-            <li>
-              We slaan deze elementen op in constante variabelen (const) zodat
-              we ze gemakkelijk kunnen gebruiken
-            </li>
-            <li>
-              Bijvoorbeeld: <code>displayText</code> verwijst naar het element
-              met de klasse "letters" waar we later de letters van het woord
-              tonen
-            </li>
-          </ul>
+        <p class="section__text">Wat gebeurt hier?</p>
+        <ul class="section__list">
+          <li>
+            <code>document.querySelector()</code> zoekt elementen in je HTML
+            op basis van CSS-selectoren (zoals klassen)
+          </li>
+          <li>
+            We slaan deze elementen op in constante variabelen (const) zodat
+            we ze gemakkelijk kunnen gebruiken
+          </li>
+          <li>
+            Bijvoorbeeld: <code>displayText</code> verwijst naar het element
+            met de klasse "letters" waar we later de letters van het woord
+            tonen
+          </li>
+        </ul>
 
-          <h4 class="section__subsubtitle">Stap 2: Variabelen instellen</h4>
-          <p class="section__text">
-            Nu stellen we enkele variabelen in die we voor het spel nodig
-            hebben:
-          </p>
+        <h4 class="section__subsubtitle">Stap 2: Variabelen instellen</h4>
+        <p class="section__text">
+          Nu stellen we enkele variabelen in die we voor het spel nodig
+          hebben:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// Initializing the game variables
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// Initializing the game variables
 let selectedWord, correctLetters, wrongGuessCount;
 const maxGuessCount = 6;</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Uitleg:</p>
-          <ul class="section__list">
-            <li>
-              <code>let</code> maakt variabelen die later kunnen veranderen
-            </li>
-            <li>
-              <code>selectedWord</code> slaat het huidige woord op dat moet
-              worden geraden
-            </li>
-            <li>
-              <code>correctLetters</code> wordt een lijst van correct geraden
-              letters
-            </li>
-            <li>
-              <code>wrongGuessCount</code> houdt bij hoeveel fouten de speler
-              heeft gemaakt
-            </li>
-            <li>
-              <code>maxGuessCount</code> stelt in hoeveel fouten een speler mag
-              maken (6 in dit geval)
-            </li>
-          </ul>
+        <p class="section__text">Uitleg:</p>
+        <ul class="section__list">
+          <li>
+            <code>let</code> maakt variabelen die later kunnen veranderen
+          </li>
+          <li>
+            <code>selectedWord</code> slaat het huidige woord op dat moet
+            worden geraden
+          </li>
+          <li>
+            <code>correctLetters</code> wordt een lijst van correct geraden
+            letters
+          </li>
+          <li>
+            <code>wrongGuessCount</code> houdt bij hoeveel fouten de speler
+            heeft gemaakt
+          </li>
+          <li>
+            <code>maxGuessCount</code> stelt in hoeveel fouten een speler mag
+            maken (6 in dit geval)
+          </li>
+        </ul>
 
-          <h4 class="section__subsubtitle">Stap 3: Eindscherm tonen</h4>
-          <p class="section__text">
-            Deze functie toont het eindscherm wanneer het spel over is:
-          </p>
+        <h4 class="section__subsubtitle">Stap 3: Eindscherm tonen</h4>
+        <p class="section__text">
+          Deze functie toont het eindscherm wanneer het spel over is:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// Function to display the end screen when the game is over
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// Function to display the end screen when the game is over
 function showGameOver(isWinner) {
   const modalImage = endGamePopup.querySelector("img");
 
@@ -976,32 +957,32 @@ function showGameOver(isWinner) {
 
   endGamePopup.classList.add("show");
 }</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Wat doet deze functie?</p>
-          <ul class="section__list">
-            <li>
-              De functie <code>showGameOver(isWinner)</code> krijgt één
-              parameter: <code>isWinner</code> (true of false)
-            </li>
-            <li>
-              Afhankelijk van of de speler heeft gewonnen, passen we de
-              afbeelding en tekst aan
-            </li>
-            <li>
-              We voegen een CSS-klasse <code>"show"</code> toe aan de popup om
-              deze zichtbaar te maken
-            </li>
-          </ul>
+        <p class="section__text">Wat doet deze functie?</p>
+        <ul class="section__list">
+          <li>
+            De functie <code>showGameOver(isWinner)</code> krijgt één
+            parameter: <code>isWinner</code> (true of false)
+          </li>
+          <li>
+            Afhankelijk van of de speler heeft gewonnen, passen we de
+            afbeelding en tekst aan
+          </li>
+          <li>
+            We voegen een CSS-klasse <code>"show"</code> toe aan de popup om
+            deze zichtbaar te maken
+          </li>
+        </ul>
 
-          <h4 class="section__subsubtitle">Stap 4: Nieuw spel starten</h4>
-          <p class="section__text">
-            Deze functie reset het spel zodat we opnieuw kunnen beginnen:
-          </p>
+        <h4 class="section__subsubtitle">Stap 4: Nieuw spel starten</h4>
+        <p class="section__text">
+          Deze functie reset het spel zodat we opnieuw kunnen beginnen:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// Function to start a new game
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// Function to start a new game
 const resetGame = () => {
   correctLetters = [];
   hangmanImage.src = `./src/images/hangman-0.svg`;
@@ -1022,61 +1003,60 @@ const resetGame = () => {
   // hide the game modal
   endGamePopup.classList.remove("show");
 };</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Uitleg:</p>
-          <ul class="section__list">
-            <li>
-              <code>correctLetters = []</code> - Maakt een lege lijst aan voor
-              correct geraden letters
-            </li>
-            <li>
-              <code>hangmanImage.src = ...</code> - Zet de hangman afbeelding
-              terug naar de begintoestand
-            </li>
-            <li>
-              <code>wrongGuessCount = 0</code> - Reset de teller voor verkeerde
-              gokken
-            </li>
-            <li>
-              <code>guessesText.innerText = ...</code> - Update de tekst die het
-              aantal fouten toont
-            </li>
-            <li>
-              <code>displayText.innerHTML = ...</code> - Maakt de lege vakjes
-              voor letters op basis van de lengte van het gekozen woord
-            </li>
-            <li>We herstellen alle knoppen en verbergen de popup</li>
-          </ul>
+        <p class="section__text">Uitleg:</p>
+        <ul class="section__list">
+          <li>
+            <code>correctLetters = []</code> - Maakt een lege lijst aan voor
+            correct geraden letters
+          </li>
+          <li>
+            <code>hangmanImage.src = ...</code> - Zet de hangman afbeelding
+            terug naar de begintoestand
+          </li>
+          <li>
+            <code>wrongGuessCount = 0</code> - Reset de teller voor verkeerde
+            gokken
+          </li>
+          <li>
+            <code>guessesText.innerText = ...</code> - Update de tekst die het
+            aantal fouten toont
+          </li>
+          <li>
+            <code>displayText.innerHTML = ...</code> - Maakt de lege vakjes
+            voor letters op basis van de lengte van het gekozen woord
+          </li>
+          <li>We herstellen alle knoppen en verbergen de popup</li>
+        </ul>
 
-          <p class="section__text">
-            Wat betekent <code>selectedWord.split("").map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)</code>?
-          </p>
-          <ol class="section__list nested">
-            <li>
-              <code>selectedWord.split("")</code> - Splitst het woord in een
-              array van letters
-            </li>
-            <li>
-              <code
-                >.map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)</code>
-              - Maakt voor elke letter een list-item
-            </li>
-            <li>
-              <code>join("")</code> - Voegt alles weer samen tot een string die
-              we in de HTML kunnen plaatsen
-            </li>
-          </ol>
+        <p class="section__text">
+          Wat betekent <code>selectedWord.split("").map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)</code>?
+        </p>
+        <ol class="section__list nested">
+          <li>
+            <code>selectedWord.split("")</code> - Splitst het woord in een
+            array van letters
+          </li>
+          <li>
+            <code>.map(() =&gt; `&lt;li class="letter"&gt;&lt;/li&gt;`)</code>
+            - Maakt voor elke letter een list-item
+          </li>
+          <li>
+            <code>join("")</code> - Voegt alles weer samen tot een string die
+            we in de HTML kunnen plaatsen
+          </li>
+        </ol>
 
-          <h4 class="section__subsubtitle">Stap 5: Toetsenbord maken</h4>
-          <p class="section__text">
-            We maken nu het toetsenbord dat spelers gebruiken om letters te
-            kiezen:
-          </p>
+        <h4 class="section__subsubtitle">Stap 5: Toetsenbord maken</h4>
+        <p class="section__text">
+          We maken nu het toetsenbord dat spelers gebruiken om letters te
+          kiezen:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>//creating a for loop to display our keyboard buttons we use the numbers 97 to 122 since these are the ASCII values for the lowercase letters a-z
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>//creating a for loop to display our keyboard buttons we use the numbers 97 to 122 since these are the ASCII values for the lowercase letters a-z
 for (let i = 97; i <= 122; i++) {
   //creating a button for each letter of the alphabet
   const button = document.createElement("button");
@@ -1089,41 +1069,41 @@ for (let i = 97; i <= 122; i++) {
     startGame(e.target, String.fromCharCode(i))
   );
 }</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Uitleg:</p>
-          <ul class="section__list">
-            <li>
-              We maken een for-loop die loopt van 97 t/m 122 tekens (dit zijn de
-              ASCII-codes)
-            </li>
-            <li>
-              <code>document.createElement("button")</code> - Maakt een nieuwe
-              knop aan
-            </li>
-            <li>
-              <code>String.fromCharCode(i)</code> - Zet een ASCII-code om naar
-              een letter (97 wordt 'a', 98 wordt 'b', enz.)
-            </li>
-            <li>
-              <code>keyboardContainer.appendChild(button)</code> - Voegt de knop
-              toe aan het toetsenbord in de HTML
-            </li>
-            <li>
-              <code>button.addEventListener(...)</code> - Voegt een
-              klikgebeurtenis toe die <code>startGame()</code> aanroept wanneer
-              op een knop wordt geklikt
-            </li>
-          </ul>
+        <p class="section__text">Uitleg:</p>
+        <ul class="section__list">
+          <li>
+            We maken een for-loop die loopt van 97 t/m 122 tekens (dit zijn de
+            ASCII-codes)
+          </li>
+          <li>
+            <code>document.createElement("button")</code> - Maakt een nieuwe
+            knop aan
+          </li>
+          <li>
+            <code>String.fromCharCode(i)</code> - Zet een ASCII-code om naar
+            een letter (97 wordt 'a', 98 wordt 'b', enz.)
+          </li>
+          <li>
+            <code>keyboardContainer.appendChild(button)</code> - Voegt de knop
+            toe aan het toetsenbord in de HTML
+          </li>
+          <li>
+            <code>button.addEventListener(...)</code> - Voegt een
+            klikgebeurtenis toe die <code>startGame()</code> aanroept wanneer
+            op een knop wordt geklikt
+          </li>
+        </ul>
 
-          <h4 class="section__subsubtitle">Stap 6: Spellogica afhandelen</h4>
-          <p class="section__text">
-            Nu maken we de functie die controleert of een letter correct is:
-          </p>
+        <h4 class="section__subsubtitle">Stap 6: Spellogica afhandelen</h4>
+        <p class="section__text">
+          Nu maken we de functie die controleert of een letter correct is:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>//function to handle the game logic when a button on the keyboard is clicked
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>//function to handle the game logic when a button on the keyboard is clicked
 const startGame = (button, clickedLetter) => {
   // Check if the letter is in the word
   if (selectedWord.includes(clickedLetter)) {
@@ -1160,87 +1140,87 @@ const startGame = (button, clickedLetter) => {
     showGameOver(true);
   }
 };</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">
-            Laten we deze functie stap voor stap bekijken:
-          </p>
-          <ol class="section__list">
-            <li>
-              <p><strong>Controleren of de letter in het woord zit:</strong></p>
-              <pre><code>if (selectedWord.includes(clickedLetter)) {</code></pre>
-              <p>
-                Dit controleert of de aangeklikte letter ergens in het woord
-                voorkomt.
-              </p>
-            </li>
-            <li>
-              <p><strong>Als de letter correct is:</strong></p>
-              <ul class="section__list nested">
-                <li>We splitsen het woord in letters</li>
-                <li>
-                  We doorlopen elke positie in het woord om te zien waar de
-                  letter staat
-                </li>
-                <li>We voegen de correcte letter toe aan onze lijst</li>
-                <li>We tonen de letter op de juiste plek(ken) in het woord</li>
-              </ul>
-            </li>
-            <li>
-              <p><strong>Als de letter niet in het woord zit:</strong></p>
-              <pre><code>wrongGuessCount++;
+        <p class="section__text">
+          Laten we deze functie stap voor stap bekijken:
+        </p>
+        <ol class="section__list">
+          <li>
+            <p><strong>Controleren of de letter in het woord zit:</strong></p>
+            <pre><code>if (selectedWord.includes(clickedLetter)) {</code></pre>
+            <p>
+              Dit controleert of de aangeklikte letter ergens in het woord
+              voorkomt.
+            </p>
+          </li>
+          <li>
+            <p><strong>Als de letter correct is:</strong></p>
+            <ul class="section__list nested">
+              <li>We splitsen het woord in letters</li>
+              <li>
+                We doorlopen elke positie in het woord om te zien waar de
+                letter staat
+              </li>
+              <li>We voegen de correcte letter toe aan onze lijst</li>
+              <li>We tonen de letter op de juiste plek(ken) in het woord</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Als de letter niet in het woord zit:</strong></p>
+            <pre><code>wrongGuessCount++;
 hangmanImage.src = `./src/images/hangman-${wrongGuessCount}.svg`;</code></pre>
-              <p>
-                We verhogen de foutteller en updaten de afbeelding van de
-                hangman.
-              </p>
-            </li>
-            <li>
-              <p><strong>Na elke letter:</strong></p>
-              <ul class="section__list nested">
-                <li>
-                  We schakelen de knop uit zodat dezelfde letter niet twee keer
-                  kan worden gekozen
-                </li>
-                <li>We updaten de tekst die het aantal fouten toont</li>
-              </ul>
-            </li>
-            <li>
-              <p><strong>Controleren of het spel is afgelopen:</strong></p>
-              <pre><code>if (wrongGuessCount === maxGuessCount) {
+            <p>
+              We verhogen de foutteller en updaten de afbeelding van de
+              hangman.
+            </p>
+          </li>
+          <li>
+            <p><strong>Na elke letter:</strong></p>
+            <ul class="section__list nested">
+              <li>
+                We schakelen de knop uit zodat dezelfde letter niet twee keer
+                kan worden gekozen
+              </li>
+              <li>We updaten de tekst die het aantal fouten toont</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Controleren of het spel is afgelopen:</strong></p>
+            <pre><code>if (wrongGuessCount === maxGuessCount) {
   showGameOver(false);
 } else if (
   selectedWord.split("").every((letter) => correctLetters.includes(letter))
 ) {
   showGameOver(true);
 }</code></pre>
-              <p>We controleren of:</p>
-              <ul class="section__list nested">
-                <li>
-                  De speler het maximaal aantal fouten heeft gemaakt (verloren)
-                </li>
-                <li>
-                  De speler alle letters in het woord heeft geraden (gewonnen)
-                </li>
-              </ul>
-            </li>
-          </ol>
+            <p>We controleren of:</p>
+            <ul class="section__list nested">
+              <li>
+                De speler het maximaal aantal fouten heeft gemaakt (verloren)
+              </li>
+              <li>
+                De speler alle letters in het woord heeft geraden (gewonnen)
+              </li>
+            </ul>
+          </li>
+        </ol>
 
-          <p class="section__text">
-            De <code>every()</code> functie controleert of elke letter in het
-            woord voorkomt in onze lijst met correcte letters.
-          </p>
+        <p class="section__text">
+          De <code>every()</code> functie controleert of elke letter in het
+          woord voorkomt in onze lijst met correcte letters.
+        </p>
 
-          <h4 class="section__subsubtitle">
-            Stap 7: Een willekeurig woord kiezen
-          </h4>
-          <p class="section__text">
-            Deze functie kiest een willekeurig woord uit onze lijst:
-          </p>
+        <h4 class="section__subsubtitle">
+          Stap 7: Een willekeurig woord kiezen
+        </h4>
+        <p class="section__text">
+          Deze functie kiest een willekeurig woord uit onze lijst:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// Function to get a random word from our word-list.js
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// Function to get a random word from our word-list.js
 const getRandomWord = () => {
   // Get random index from the word list
   const randomIndex = Math.floor(Math.random() * wordList.length);
@@ -1254,38 +1234,38 @@ const getRandomWord = () => {
   // Reset the game
   resetGame();
 };</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Wat gebeurt hier?</p>
-          <ul class="section__list">
-            <li>
-              <code>Math.random() * wordList.length</code> geeft een willekeurig
-              getal tussen 0 en de lengte van onze woordenlijst
-            </li>
-            <li>
-              <code>Math.floor()</code> rondt dit getal naar beneden af, zodat
-              we een geheel getal krijgen
-            </li>
-            <li>
-              We gebruiken dit getal om een woord en hint te selecteren uit onze
-              lijst
-            </li>
-            <li>We slaan het geselecteerde woord op en tonen de hint</li>
-            <li>
-              Ten slotte roepen we <code>resetGame()</code> aan om alles in te
-              stellen
-            </li>
-          </ul>
+        <p class="section__text">Wat gebeurt hier?</p>
+        <ul class="section__list">
+          <li>
+            <code>Math.random() * wordList.length</code> geeft een willekeurig
+            getal tussen 0 en de lengte van onze woordenlijst
+          </li>
+          <li>
+            <code>Math.floor()</code> rondt dit getal naar beneden af, zodat
+            we een geheel getal krijgen
+          </li>
+          <li>
+            We gebruiken dit getal om een woord en hint te selecteren uit onze
+            lijst
+          </li>
+          <li>We slaan het geselecteerde woord op en tonen de hint</li>
+          <li>
+            Ten slotte roepen we <code>resetGame()</code> aan om alles in te
+            stellen
+          </li>
+        </ul>
 
-          <h4 class="section__subsubtitle">Stap 8: Het spel starten</h4>
-          <p class="section__text">
-            Tot slot starten we het spel en voegen we een gebeurtenis toe voor
-            de "Opnieuw spelen" knop:
-          </p>
+        <h4 class="section__subsubtitle">Stap 8: Het spel starten</h4>
+        <p class="section__text">
+          Tot slot starten we het spel en voegen we een gebeurtenis toe voor
+          de "Opnieuw spelen" knop:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>//start the game with a random word
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>//start the game with a random word
 getRandomWord();
 
 //add an event listener to the play again button to reset the game when clicked
@@ -1293,29 +1273,29 @@ playAgainButton.addEventListener("click", () => {
   endGamePopup.classList.remove("show");
   getRandomWord();
 });</code></pre>
-          </div>
+        </div>
 
-          <p class="section__text">Deze code:</p>
-          <ul class="section__list">
-            <li>
-              Start het spel meteen door <code>getRandomWord()</code> aan te
-              roepen
-            </li>
-            <li>
-              Voegt een klikgebeurtenis toe aan de "Opnieuw spelen" knop die het
-              popup-venster verbergt en een nieuw spel start
-            </li>
-          </ul>
+        <p class="section__text">Deze code:</p>
+        <ul class="section__list">
+          <li>
+            Start het spel meteen door <code>getRandomWord()</code> aan te
+            roepen
+          </li>
+          <li>
+            Voegt een klikgebeurtenis toe aan de "Opnieuw spelen" knop die het
+            popup-venster verbergt en een nieuw spel start
+          </li>
+        </ul>
 
-          <h3 class="section__subtitle">De volledige JavaScript code</h3>
-          <p class="section__text">
-            Hier is de volledige code die je in je scripts.js bestand moet
-            plaatsen:
-          </p>
+        <h3 class="section__subtitle">De volledige JavaScript code</h3>
+        <p class="section__text">
+          Hier is de volledige code die je in je scripts.js bestand moet
+          plaatsen:
+        </p>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>// Selecting all elements
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>// Selecting all elements
 const displayText = document.querySelector(".letters");
 const hangmanImage = document.querySelector(".drawing__img");
 const endGamePopup = document.querySelector(".popup");
@@ -1445,47 +1425,47 @@ playAgainButton.addEventListener("click", () => {
   endGamePopup.classList.remove("show");
   getRandomWord();
 });</code></pre>
-          </div>
-
-          <h3 class="section__subtitle">Test je spel!</h3>
-          <p class="section__text">
-            Je hebt nu alle onderdelen van een werkend Hangman spel. Open de
-            index.html in je browser en test of het spel werkt!
-          </p>
-
-          <div class="tip">
-            <h4>Tip voor het debuggen</h4>
-            <p>
-              Als je spel niet werkt zoals verwacht, kun je de browser
-              ontwikkelaarshulpmiddelen gebruiken om te zien wat er fout gaat.
-              Druk op F12 of klik met de rechtermuisknop en kies "Inspecteren"
-              of "Inspecteren element".
-            </p>
-          </div>
-
-          <div class="next-step">
-            <p>
-              Super! Je hebt nu een werkend Hangman spel gemaakt met HTML, CSS
-              en JavaScript!
-            </p>
-          </div>
         </div>
-      </section>
 
-      <!-- Project Structure Section -->
-      <section id="structure" class="section">
-        <div class="section__content">
-          <h2 class="section__title">Stap 4: Projectstructuur</h2>
+        <h3 class="section__subtitle">Test je spel!</h3>
+        <p class="section__text">
+          Je hebt nu alle onderdelen van een werkend Hangman spel. Open de
+          index.html in je browser en test of het spel werkt!
+        </p>
 
-          <p class="section__text">
-            Je hebt nu een volledige webtoepassing gemaakt met HTML, CSS en
-            JavaScript. Hier is een overzicht van de uiteindelijke
-            projectstructuur:
+        <div class="tip">
+          <h4>Tip voor het debuggen</h4>
+          <p>
+            Als je spel niet werkt zoals verwacht, kun je de browser
+            ontwikkelaarshulpmiddelen gebruiken om te zien wat er fout gaat.
+            Druk op F12 of klik met de rechtermuisknop en kies "Inspecteren"
+            of "Inspecteren element".
           </p>
+        </div>
 
-          <div class="code-block">
-            <button class="copy-btn">Copy</button>
-            <pre><code>hangman-game/
+        <div class="next-step">
+          <p>
+            Super! Je hebt nu een werkend Hangman spel gemaakt met HTML, CSS
+            en JavaScript!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Structure Section -->
+    <section id="structure" class="section">
+      <div class="section__content">
+        <h2 class="section__title">Stap 4: Projectstructuur</h2>
+
+        <p class="section__text">
+          Je hebt nu een volledige webtoepassing gemaakt met HTML, CSS en
+          JavaScript. Hier is een overzicht van de uiteindelijke
+          projectstructuur:
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code>hangman-game/
 ├── index.html                 # Het hoofdbestand
 └── src/
     ├── css/
@@ -1507,46 +1487,47 @@ playAgainButton.addEventListener("click", () => {
             ├── create-folder.png
             ├── vscode-open.png
             └── create-file.png</code></pre>
-          </div>
-
-          <h3 class="section__subtitle">Volgende stappen</h3>
-          <p class="section__text">
-            Nu je de basis van webontwikkeling hebt geleerd, kun je het spel
-            verder uitbreiden en verbeteren:
-          </p>
-
-          <ul class="section__list">
-            <li>Voeg meer woorden en categorieën toe</li>
-            <li>Maak een moeilijkheidsgraad (makkelijk, normaal, moeilijk)</li>
-            <li>Voeg geluidseffecten toe</li>
-            <li>Voeg een scorebord toe dat de hoogste scores bewaart</li>
-            <li>Maak het spel responsive voor mobiele apparaten</li>
-            <li>Voeg een timer toe om het uitdagender te maken</li>
-          </ul>
-
-          <div class="tip">
-            <h4>Tip voor verdere ontwikkeling</h4>
-            <p>
-              Een van de beste manieren om te leren programmeren is door iets te
-              maken en het dan te verbeteren. Probeer telkens één nieuwe functie
-              toe te voegen en test deze grondig voordat je verder gaat.
-            </p>
-          </div>
-
-          <div class="next-step">
-            <p>
-              Gefeliciteerd! Je hebt je eerste webproject voltooid. We hopen dat
-              je iets hebt geleerd en plezier hebt gehad.
-            </p>
-            <a href="#intro" class="btn btn--primary">Terug naar het begin</a>
-          </div>
         </div>
-      </section>
-    </div>
 
-    <!-- Scripts -->
-    <script src="./src/scripts/word-list.js"></script>
-    <script src="./src/scripts/scripts.js"></script>
-    <script src="./src/scripts/tutorial.js"></script>
-  </body>
+        <h3 class="section__subtitle">Volgende stappen</h3>
+        <p class="section__text">
+          Nu je de basis van webontwikkeling hebt geleerd, kun je het spel
+          verder uitbreiden en verbeteren:
+        </p>
+
+        <ul class="section__list">
+          <li>Voeg meer woorden en categorieën toe</li>
+          <li>Maak een moeilijkheidsgraad (makkelijk, normaal, moeilijk)</li>
+          <li>Voeg geluidseffecten toe</li>
+          <li>Voeg een scorebord toe dat de hoogste scores bewaart</li>
+          <li>Maak het spel responsive voor mobiele apparaten</li>
+          <li>Voeg een timer toe om het uitdagender te maken</li>
+        </ul>
+
+        <div class="tip">
+          <h4>Tip voor verdere ontwikkeling</h4>
+          <p>
+            Een van de beste manieren om te leren programmeren is door iets te
+            maken en het dan te verbeteren. Probeer telkens één nieuwe functie
+            toe te voegen en test deze grondig voordat je verder gaat.
+          </p>
+        </div>
+
+        <div class="next-step">
+          <p>
+            Gefeliciteerd! Je hebt je eerste webproject voltooid. We hopen dat
+            je iets hebt geleerd en plezier hebt gehad.
+          </p>
+          <a href="#intro" class="btn btn--primary">Terug naar het begin</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./src/scripts/word-list.js"></script>
+  <script src="./src/scripts/scripts.js"></script>
+  <script src="./src/scripts/tutorial.js"></script>
+</body>
+
 </html>
