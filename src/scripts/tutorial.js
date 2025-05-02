@@ -1,4 +1,3 @@
-// When the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // === Progress Bar ===
     const progressBar = document.querySelector('.progress-bar');
@@ -28,13 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add click event to all copy buttons
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('copy-btn')) {
             const codeBlock = e.target.closest('.code-block');
             const code = codeBlock.querySelector('code').textContent;
             
-            // Copy text to clipboard
             navigator.clipboard.writeText(code).then(() => {
                 // Change button text temporarily
                 const originalText = e.target.textContent;
